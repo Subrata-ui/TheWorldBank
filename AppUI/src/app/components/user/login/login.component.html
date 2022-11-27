@@ -26,6 +26,7 @@
             <mat-icon>error_outline</mat-icon>Invalid login credentials.
         </div>
     </form>
-    <a class="user-action">Password Reset</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a class="user-action">New User
-        Registration</a><br>Need Help? <a class="user-action">See FAQs</a>
+    <a class="user-action" (click)="navigateToForgotPassword()">Password Reset</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+    <a class="user-action" (click)="navigateToRegistration()">New User
+        Registration</a><br>Need Help? <a class="user-action" (click)="navigateToFAQPage()">See FAQs</a>
 </div>

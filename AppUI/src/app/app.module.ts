@@ -22,6 +22,11 @@ import { CreditCardsComponent } from './components/products/credit-cards/credit-
 import { CareerComponent } from './components/career/career.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { LoginComponent } from './components/user/login/login.component';
+import { ProfileComponent } from './components/user/profile/profile.component';
+import { DashboardComponent } from './components/user/dashboard/dashboard.component';
+import { RegistrationComponent } from './components/user/registration/registration.component';
+import { ForgotPasswordComponent } from './components/user/forgot-password/forgot-password.component';
+import { FAQPageComponent } from './components/faq-page/faq-page.component';
 
 @NgModule({
   declarations: [    
@@ -39,7 +44,12 @@ import { LoginComponent } from './components/user/login/login.component';
     CreditCardsComponent,
     CareerComponent,
     PageNotFoundComponent,
-    LoginComponent
+    LoginComponent,
+    ProfileComponent,
+    DashboardComponent,
+    RegistrationComponent,
+    ForgotPasswordComponent,
+    FAQPageComponent
   ],
   imports: [
     BrowserModule,

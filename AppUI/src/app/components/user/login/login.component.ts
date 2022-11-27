@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,9 @@ export class LoginComponent {
   constructor(
     public dialogRef: MatDialogRef<LoginComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private formBuilder: FormBuilder,) { }
+    private formBuilder: FormBuilder,
+    public router: Router,
+    ) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -42,8 +45,25 @@ export class LoginComponent {
     else {
       this.invalidLogin = false;
       // After success redirect to dashboard page.
-      alert("Success");
+      this.dialogRef.close();
+      this.router.navigate(['dashboard']);
+           
       
     }
+  }
+  public navigateToRegistration(): void {
+    this.dialogRef.close();
+    this.router.navigate(['registration']);
+    
+  }
+  public navigateToForgotPassword(): void {
+    this.dialogRef.close();
+    this.router.navigate(['forgot-password']);
+    
+  }
+  public navigateToFAQPage(): void {
+    this.dialogRef.close();
+    this.router.navigate(['faq-page']);
+    
   }
 }
