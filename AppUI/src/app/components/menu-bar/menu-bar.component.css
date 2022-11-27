@@ -1,0 +1,14 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+.menubar-text-color a{
+    color: white;
+}
+
+.menubar-text-color a:hover {
+    background-color: #ccc;
+    color: white;
+  }
+  .footer{
+    background-color: aqua;
+  }

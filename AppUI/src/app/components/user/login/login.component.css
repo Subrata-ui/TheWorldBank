@@ -1,0 +1,18 @@
+.dialog-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .mdc-dialog__title {
+    padding: 10px;
+  }
+
+  .user-action{
+    color: blue;
+    cursor: pointer;
+  }
+
+  .invalid-login{
+    display: inline-flex; color:red;
+  }

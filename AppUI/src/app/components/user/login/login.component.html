@@ -1,0 +1,31 @@
+<div mat-dialog-title class="dialog-title">
+    User Login
+    <button mat-icon-button aria-label="close dialog" mat-dialog-close>
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<div mat-dialog-content style="text-align: center;">
+
+    <form class="example-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-icon matPrefix>account_circle</mat-icon>
+            <mat-label>User Name</mat-label>
+            <input matInput formControlName="username">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-icon matPrefix>lock</mat-icon>
+            <mat-label>Password</mat-label>
+            <input matInput name="password" type="password" formControlName="password">
+        </mat-form-field>
+        <br>
+        <button mat-raised-button color="primary">Login</button>
+        <br>
+        <div *ngIf="invalidLogin" class="invalid-login">
+            <mat-icon>error_outline</mat-icon>Invalid login credentials.
+        </div>
+    </form>
+    <a class="user-action">Password Reset</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a class="user-action">New User
+        Registration</a><br>Need Help? <a class="user-action">See FAQs</a>
+</div>
