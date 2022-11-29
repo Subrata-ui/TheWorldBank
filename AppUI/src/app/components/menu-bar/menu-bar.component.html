@@ -1,107 +1,107 @@
+<mat-toolbar color="primary" class="menubar-text-color">
+  <img src="/assets/images/bank_logo.jpg" width="40px" height="auto" /> &nbsp;
+  <span style="font-size: 25px; margin-right: 50px;">The World Bank</span>
 
-    <mat-toolbar color="primary" class="menubar-text-color">
-        <img src="/assets/images/bank_logo.jpg" width="40px" height="auto" /> &nbsp;
-      <span style="font-size: 25px; margin-right: 50px;">The World Bank</span>
-      
-      <div fxShow="true" fxHide.lt-md="true">
-        <!-- The following menu items will be hidden on both SM and XS screen sizes -->
-        <a href="#" mat-button>Home</a>
-        <button mat-button [matMenuTriggerFor]="products" style="color: white;">Products<mat-icon>arrow_drop_down</mat-icon></button>
-        <mat-menu #products="matMenu">
-            <button mat-menu-item [matMenuTriggerFor]="accounts">Accounts</button>
-            <button mat-menu-item [matMenuTriggerFor]="loans">Loans</button>
-            <button mat-menu-item [matMenuTriggerFor]="cards">Cards</button>
-        </mat-menu>
-        <mat-menu #accounts="matMenu">
-            <button mat-menu-item>Saving Account</button>
-            <button mat-menu-item>Current Account</button>
-        </mat-menu>
-        <mat-menu #loans="matMenu">
-            <button mat-menu-item>Personal Loan</button>
-            <button mat-menu-item>Home Loan</button>
-            <button mat-menu-item>Car Loan</button>
-            <button mat-menu-item>Business Loans</button>
-        </mat-menu>
-        <mat-menu #cards="matMenu">
-            <button mat-menu-item>Debit Cards</button>
-            <button mat-menu-item>Credit Cards</button>
-        </mat-menu>
-        <a href="#" mat-button>Career</a>
-      </div>
-      <span class="example-spacer"></span>  
-      <div fxShow="true" fxHide.lt-md="true">
-        <!-- The following menu items will be hidden on both SM and XS screen sizes -->
-        <a mat-button routerLink="contact-us">Contact Us<mat-icon>contact_support</mat-icon></a>
-        <a (click)="openDialog()" mat-button>Login<mat-icon>account_circle</mat-icon></a>        
-      </div>  
-      <div fxShow="true" fxHide.gt-sm="true">
-        <a (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></a>
-      </div>
-    </mat-toolbar>  
-    <mat-sidenav-container fxFlexFill class="example-container">
-      <mat-sidenav #sidenav fxLayout="column">
-        <div fxLayout="column">
-          <a (click)="sidenav.toggle()" href="#" mat-button>Close</a>
-          <a href="#" mat-button>Home</a>
-          <button mat-button [matMenuTriggerFor]="products">Products<mat-icon>arrow_drop_down</mat-icon></button>        
-          <a href="#" mat-button>Career</a>
-          <a mat-button routerLink="contact-us">Contact Us</a>
-          <a (click)="openDialog()" mat-button>Login</a>
-        </div>
-      </mat-sidenav>
-      <mat-sidenav-content fxFlexFill>
-        <router-outlet></router-outlet>
-    </mat-sidenav-content>
-    </mat-sidenav-container>
-    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="20px" class="footer" >
-      <div >
-          <ul>
-              <h3 class="pink">Header</h3>
-              <li>Some Link</li>
-              <li>Some Link</li>
-              <li>Some Link</li>
-              <li>Some Link</li>
-              <li>Some Link</li>
-              <li>Some Link</li>
-            </ul>
-            
-      </div>  
-      <div >
-          <ul>
-              <h3 class="pink">Header</h3>
-              <li>Some Link</li>
-              <li>Some Link</li>
-              <li>Some Link</li>
-              <li>Some Link</li>
-              <li>Some Link</li>
-              <li>Some Link</li>
-            </ul>
-            
-      </div> 
-      <div >
-          <ul>
-              <h3 class="pink">Header</h3>
-              <li>Some Link</li>
-              <li>Some Link</li>
-              <li>Some Link</li>
-              <li>Some Link</li>
-              <li>Some Link</li>
-              <li>Some Link</li>
-            </ul>
-            
-      </div>  
-      <div >
-          <ul>
-              <h3 class="pink">Header</h3>
-              <li>Some Link</li>
-              <li>Some Link</li>
-              <li>Some Link</li>
-              <li>Some Link</li>
-              <li>Some Link</li>
-              <li>Some Link</li>
-            </ul>
-            
-      </div>        
+  <div fxShow="true" fxHide.lt-md="true">
+    <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+    <a href="#" mat-button>Home</a>
+    <button mat-button [matMenuTriggerFor]="products" style="color: white;">Products<mat-icon>arrow_drop_down</mat-icon>
+      </button>
+    <mat-menu #products="matMenu">
+      <button mat-menu-item [matMenuTriggerFor]="accounts">Accounts</button>
+      <button mat-menu-item [matMenuTriggerFor]="loans">Loans</button>
+      <button mat-menu-item [matMenuTriggerFor]="cards">Cards</button>
+    </mat-menu>
+    <mat-menu #accounts="matMenu">
+      <button mat-menu-item>Saving Account</button>
+      <button mat-menu-item>Current Account</button>
+    </mat-menu>
+    <mat-menu #loans="matMenu">
+      <button mat-menu-item>Personal Loan</button>
+      <button mat-menu-item>Home Loan</button>
+      <button mat-menu-item>Car Loan</button>
+      <button mat-menu-item>Business Loans</button>
+    </mat-menu>
+    <mat-menu #cards="matMenu">
+      <button mat-menu-item>Debit Cards</button>
+      <button mat-menu-item>Credit Cards</button>
+    </mat-menu>
+    <a href="#" mat-button>Career</a>
   </div>
+  <span class="example-spacer"></span>
+  <div fxShow="true" fxHide.lt-md="true">
+    <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+    <a mat-button routerLink="contact-us">Contact Us<mat-icon>contact_support</mat-icon></a>
+    <a (click)="openDialog()" mat-button>Login<mat-icon>account_circle</mat-icon></a>
+  </div>
+  <div fxShow="true" fxHide.gt-sm="true">
+    <a (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </a>
+  </div>
+</mat-toolbar>
+<mat-sidenav-container fxFlexFill class="example-container">
+  <mat-sidenav #sidenav fxLayout="column">
+    <div fxLayout="column">
+      <a (click)="sidenav.toggle()" href="#" mat-button>Close</a>
+      <a href="#" mat-button>Home</a>
+      <button mat-button [matMenuTriggerFor]="products">Products<mat-icon>arrow_drop_down</mat-icon></button>
+      <a href="#" mat-button>Career</a>
+      <a mat-button routerLink="contact-us">Contact Us</a>
+      <a (click)="openDialog()" mat-button>Login</a>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content fxFlexFill>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="20px" class="footer">
+  <div>
+    <ul>
+      <h3 class="pink">Header</h3>
+      <li>Some Link</li>
+      <li>Some Link</li>
+      <li>Some Link</li>
+      <li>Some Link</li>
+      <li>Some Link</li>
+      <li>Some Link</li>
+    </ul>
 
+  </div>
+  <div>
+    <ul>
+      <h3 class="pink">Header</h3>
+      <li>Some Link</li>
+      <li>Some Link</li>
+      <li>Some Link</li>
+      <li>Some Link</li>
+      <li>Some Link</li>
+      <li>Some Link</li>
+    </ul>
 
+  </div>
+  <div>
+    <ul>
+      <h3 class="pink">Header</h3>
+      <li>Some Link</li>
+      <li>Some Link</li>
+      <li>Some Link</li>
+      <li>Some Link</li>
+      <li>Some Link</li>
+      <li>Some Link</li>
+    </ul>
+
+  </div>
+  <div>
+    <ul>
+      <h3 class="pink">Header</h3>
+      <li>Some Link</li>
+      <li>Some Link</li>
+      <li>Some Link</li>
+      <li>Some Link</li>
+      <li>Some Link</li>
+      <li>Some Link</li>
+    </ul>
+
+  </div>
+</div>

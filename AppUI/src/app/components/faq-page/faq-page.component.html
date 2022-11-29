@@ -1,27 +1,63 @@
-<mat-accordion>      
-    <mat-expansion-panel (opened)="panelOpenState = true"
-                         (closed)="panelOpenState = false">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Self aware panel
-        </mat-panel-title>
-        <mat-panel-description>
-          Currently I am {{panelOpenState ? 'open' : 'closed'}}
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <p>I'm visible because I am open</p>
-    </mat-expansion-panel>
-    <mat-expansion-panel (opened)="panelOpenState = true"
-                         (closed)="panelOpenState = false">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Self aware panel
-        </mat-panel-title>
-        <mat-panel-description>
-          Currently I am {{panelOpenState ? 'open' : 'closed'}}
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <p>I'm visible because I am open</p>
-    </mat-expansion-panel>
-  </mat-accordion>
-  
+<div fxLayout="row">
+  <div fxFlex="10" fxHide.lt-sm></div>
+  <div fxFlex="80" fxFlex.lt-sm="100" class="main-div">
+    <div
+      style="text-align: center; font-weight: bold; font-size: 20px; background-color: blanchedalmond; padding: 5px; margin-top: 10px; margin-bottom: 10px;">
+      FAQs</div>
+    <div fxLayout="row" fxLayoutAlign="space-between center" >
+      <mat-accordion class="example-headers-align" class="accordian-content">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              How do I change my password?
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          After you have logged in, you can change your password using the "Change password" option in the top part 
+          of the screen. You have to type your current password and the new password you have chosen in their respective boxes.
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between center" >
+      <mat-accordion class="example-headers-align" class="accordian-content">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              When will I receive my changed ATM PIN?
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          You will receive your new ATM PIN by post within 10 days from when your request has been submitted.
+          The used display property are listed below:
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between center" >
+      <mat-accordion class="example-headers-align" class="accordian-content">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Can Chip Credit cards be used anywhere?
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          Yes, your HDFC Bank Chip Credit card can be used anywhere in the world wherever Visa/MasterCard are accepted. 
+          At a chip-enabled terminal, you can insert your Chip card into a POS Terminal. If you are using
+          your Chip card at a location that does not have a chip-enabled terminal, your card will be swiped and the 
+          transaction will be completed with your signature as in case of a regular card transaction.
+
+
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+      <mat-accordion class="example-headers-align" class="accordian-content">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              When will I receive my changed ATM PIN?
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          You will receive your new ATM PIN by post within 10 days from when your request has been submitted.
+          The used display property are listed below:
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>

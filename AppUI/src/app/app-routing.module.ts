@@ -14,25 +14,27 @@ import { HomeLoanComponent } from './components/products/home-loan/home-loan.com
 import { PersonalLoanComponent } from './components/products/personal-loan/personal-loan.component';
 import { DashboardComponent } from './components/user/dashboard/dashboard.component';
 import { ForgotPasswordComponent } from './components/user/forgot-password/forgot-password.component';
+import { ProfileComponent } from './components/user/profile/profile.component';
 import { RegistrationComponent } from './components/user/registration/registration.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-{ path: 'home', component: HomeComponent },
-{ path: 'contact-us', component: ContactUsComponent },
-{ path: 'career', component: CareerComponent },
-{ path: 'current-account', component: CurrentAccountComponent },
-{ path: 'car-loan', component: CarLoanComponent },
-{ path: 'busigness-loan', component: BusinessLoanComponent },
-{ path: 'personal-loan', component: PersonalLoanComponent },
-{ path: 'home-loan', component: HomeLoanComponent },
-{ path: 'debit-cards', component: DebitCardsComponent },
-{ path: 'credit-cards', component: CreditCardsComponent },
-{ path: 'dashboard', component: DashboardComponent },
-{ path: 'forgot-password', component: ForgotPasswordComponent },
-{ path: 'registration', component: RegistrationComponent },
-{ path: 'faq-page', component: FAQPageComponent },
-{ path: '**', component: PageNotFoundComponent }
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'contact-us', component: ContactUsComponent },
+  { path: 'career', component: CareerComponent },
+  { path: 'current-account', component: CurrentAccountComponent },
+  { path: 'car-loan', component: CarLoanComponent },
+  { path: 'busigness-loan', component: BusinessLoanComponent },
+  { path: 'personal-loan', component: PersonalLoanComponent },
+  { path: 'home-loan', component: HomeLoanComponent },
+  { path: 'debit-cards', component: DebitCardsComponent },
+  { path: 'credit-cards', component: CreditCardsComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'registration', component: RegistrationComponent },
+  { path: 'faq-page', component: FAQPageComponent },
+
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({

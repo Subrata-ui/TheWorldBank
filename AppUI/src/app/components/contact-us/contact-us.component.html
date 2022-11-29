@@ -1,1 +1,57 @@
-<p>contact-us works!</p>
+<div flex fxLayout="row" fxLayoutAlign="center center">
+    <mat-card>
+        <form [formGroup]="ownerForm" autocomplete="off" novalidate (ngSubmit)="createOwner(ownerForm.value)">
+            <mat-card-content>
+                <div fxLayoutAlign="center center" fxLayout.lt-sm="column">
+                    <h3>Contact Us</h3>
+                </div>
+                <div fxLayout.lt-sm="column">
+                    <div fxFlexOffset="2">
+                        <mat-form-field>
+                            <input matInput type="text" placeholder="Owner's name" formControlName="name" id="name">
+                            <mat-error *ngIf="hasError('name', 'required')">Name is required</mat-error>
+                            <mat-error *ngIf="hasError('name', 'maxlength')">You have more than 10 characters
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlexOffset="2">
+                        <mat-form-field class="date-field">
+                            <input matInput [matDatepicker]="picker" placeholder="Choose a date of birth"
+                                formControlName="dateOfBirth" id="dateOfBirth" readonly (click)="picker.open()">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div fxLayout.lt-sm="column">
+                    <div fxFlexOffset="2">
+                        <mat-form-field>
+                            <input matInput type="text" placeholder="Owner's address" formControlName="address">
+                            <mat-error *ngIf="hasError('address', 'required')">Address is required</mat-error>
+                            <mat-error *ngIf="hasError('address', 'maxlength')">You have more than 100 characters
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlexOffset="2">
+                        <mat-form-field>
+                            <mat-label>Password</mat-label>
+                            <input matInput placeholder="Password" type="password">
+                            <mat-error>
+                                Please enter a valid Password
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </mat-card-content>
+            <div fxLayoutAlign="center center" fxLayout.lt-sm="column">
+                <div fxFlexOffset="2">
+                    <mat-card-actions>
+                        <button mat-raised-button color="primary" [disabled]="!ownerForm.valid">Create</button>
+                        &nbsp; &nbsp;<button type="button" mat-raised-button color="warn"
+                            (click)="onCancel()">Cancel</button>
+                    </mat-card-actions>
+                </div>
+            </div>
+        </form>
+    </mat-card>
+</div>

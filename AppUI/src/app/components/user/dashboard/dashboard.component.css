@@ -1,6 +1,6 @@
-.profile-image{
-    vertical-align: middle;  
-    margin-right: 5px; 
+.profile-image {
+    vertical-align: middle;
+    margin-right: 5px;
     border-radius: 50%;
 }
 .profile {
@@ -8,19 +8,16 @@
     color: white;
     padding: 5px;
 }
-
 .profile a {
     color: white;
     margin-left: 10px;
 }
-
-.profile a:hover {
+    .profile a:hover {
     background-color: #ccc;
     color: white;
 }
-
-.main-div{
+.main-div {
     padding: 5px;
-     background-color: beige; 
-     height: 500px;
+    background-color: beige;
+    height: 550px;
 }

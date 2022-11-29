@@ -10,3 +10,7 @@
  .invalid-login{
     display: inline-flex; color:red;
   }
+
+  .date-field{
+    width: 85% !important;
+  } 

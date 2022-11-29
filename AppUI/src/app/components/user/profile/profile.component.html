@@ -1,1 +1,48 @@
-<p>profile works!</p>
+<br>
+<div fxLayout="row">
+  <div fxFlex="20" fxHide.lt-sm></div>
+  <div fxFlex="60" fxFlex.lt-sm="100" class="main-div">
+    <mat-card class="example-card">
+      <mat-card-header fxLayoutAlign="center center">
+        <mat-card-title>Profile Details</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div fxLayoutAlign="center center">
+          <img [src]="url" width="100px" height="auto" class="profile-image">
+        </div>
+        <div fxLayoutAlign="center center">
+          <input type="file" accept=".png, .jpg, .jpeg" (change)="handleFileInput($event)"
+            style="min-width: 25%; margin-top: 10px;">
+        </div>
+        <div fxLayout.lt-sm="column" fxLayoutAlign="center center">
+          <div fxFlexOffset="2">
+            Name: <mat-form-field>
+              <input matInput type="text" placeholder="XYZ" id="name" disabled>
+            </mat-form-field>
+          </div>
+          <div fxFlexOffset="2">
+            Address: <mat-form-field class="date-field">
+              <textarea matInput style="resize: none;"></textarea>
+            </mat-form-field>
+          </div>
+        </div>
+        <div fxLayout.lt-sm="column" fxLayoutAlign="center center">
+          <div fxFlexOffset="2">
+            Email: <mat-form-field>
+              <input matInput type="text" placeholder="Owner's name">
+            </mat-form-field>
+          </div>
+          <div fxFlexOffset="2">
+            Mobile: <mat-form-field class="date-field">
+              <input matInput type="text" placeholder="Owner's name">
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions fxLayoutAlign="center center">
+        <button mat-raised-button color="primary">Back To Dashboard</button>&nbsp; &nbsp;
+        <button mat-raised-button color="primary" (click)="openSnackBar()">Update</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
