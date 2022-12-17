@@ -2,6 +2,21 @@
   flex: 1 1 auto;
 }
 
+#title {
+  text-decoration: none;
+  background: none;
+}
+
+#title-text {
+  font-size: 25px;
+  margin-right: 50px;
+}
+
+#title-text a {
+  text-decoration: none;
+  background: none;
+}
+
 .menubar-text-color a {
   color: white;
 }
@@ -13,4 +28,9 @@
 
 .footer {
   background-color: aqua;
+}
+
+.pink li {
+  list-style: none;
+  cursor: pointer;
 }

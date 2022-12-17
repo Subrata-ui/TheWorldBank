@@ -17,16 +17,14 @@ export class LoginComponent {
     public dialogRef: MatDialogRef<LoginComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private formBuilder: FormBuilder,
-    public router: Router,
+    private router: Router,
     ) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
+      userName: ['', Validators.required],
       password: ['', Validators.required]
-    });
-
-    ;
+    });  
     //this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
@@ -35,8 +33,6 @@ export class LoginComponent {
 
   onSubmit() {
     this.submitted = true;
-
-
     // stop here if form is invalid
     if (this.loginForm.invalid) {
       this.invalidLogin = true;;
