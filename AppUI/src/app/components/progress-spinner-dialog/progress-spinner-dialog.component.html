@@ -1,0 +1,9 @@
+<div class="container" *ngIf="this.progress != 100">
+    <div style="position: relative">
+        <mat-progress-bar mode="determinate" [value]="progress"></mat-progress-bar>
+        <span style="position: absolute; top: 0.5em;" [ngStyle]="{'left': progress + '%'}"></span>
+    </div>
+</div>
+    <!-- <div class="d-flex justify-content-end">  
+  <span class="completed_progress_bar">{{progress}}% completed (<span id="countdown"></span> Seconds to complete)</span>  
+</div>  -->

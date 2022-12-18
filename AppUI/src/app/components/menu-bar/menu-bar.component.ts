@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { CommonService } from 'src/app/services/common.service';
 import { LoginComponent } from '../user/login/login.component';
 
 @Component({
@@ -9,7 +10,24 @@ import { LoginComponent } from '../user/login/login.component';
 })
 export class MenuBarComponent {
   title = 'angular-material-modals';
-  constructor(public dialog: MatDialog) { }
+  loggedInUserName: string;
+  isUserLoggedIn = false;
+  ecomServices: any;
+  constructor(public dialog: MatDialog, private commonService: CommonService) { }
+
+  ngOnInit() {
+    this.commonService.opLoginClickedEvent
+      .subscribe((data: string) => {
+        this.loggedInUserName = data;
+        this.isUserLoggedIn = true;
+      });
+
+      if (localStorage.getItem("CurrentUser") !== null) {
+        this.ecomServices = JSON.parse(localStorage.getItem('CurrentUser') || '{}');
+        this.isUserLoggedIn = true;
+        this.loggedInUserName = this.ecomServices[0].username;
+      }
+  }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(LoginComponent, {

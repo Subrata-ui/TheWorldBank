@@ -27,6 +27,7 @@ import { DashboardComponent } from './components/user/dashboard/dashboard.compon
 import { RegistrationComponent } from './components/user/registration/registration.component';
 import { ForgotPasswordComponent } from './components/user/forgot-password/forgot-password.component';
 import { FAQPageComponent } from './components/faq-page/faq-page.component';
+import { ProgressSpinnerDialogComponent } from './components/progress-spinner-dialog/progress-spinner-dialog.component';
 
 @NgModule({
   declarations: [    
@@ -49,7 +50,8 @@ import { FAQPageComponent } from './components/faq-page/faq-page.component';
     DashboardComponent,
     RegistrationComponent,
     ForgotPasswordComponent,
-    FAQPageComponent
+    FAQPageComponent,
+    ProgressSpinnerDialogComponent
   ],
   imports: [
     BrowserModule,

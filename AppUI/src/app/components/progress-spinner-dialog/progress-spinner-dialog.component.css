@@ -1,0 +1,16 @@
+.mat-progress-bar {    
+    display: block;    
+    height: 15px !important;    
+    overflow: hidden;    
+    position: relative;    
+    transition: opacity 250ms linear;    
+    width: 100%;    
+  }    
+      
+  .mat-progress-bar-buffer {    
+    background-color: #e9ecef !important;    
+  }    
+      
+  .mat-progress-bar-background {    
+    fill:#e9ecef !important;    
+  }

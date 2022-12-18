@@ -32,7 +32,8 @@
   <div fxShow="true" fxHide.lt-md="true">
     <!-- The following menu items will be hidden on both SM and XS screen sizes -->
     <a mat-button routerLink="contact-us">Contact Us<mat-icon>contact_support</mat-icon></a>
-    <a (click)="openDialog()" mat-button>Login<mat-icon>account_circle</mat-icon></a>
+    <a *ngIf="!isUserLoggedIn;else other_content" (click)="openDialog()" mat-button>Login<mat-icon>account_circle</mat-icon></a>
+    <ng-template #other_content>Hi, {{loggedInUserName}}</ng-template>
   </div>
   <div fxShow="true" fxHide.gt-sm="true">
     <a (click)="sidenav.toggle()">
@@ -40,6 +41,7 @@
     </a>
   </div>
 </mat-toolbar>
+<app-progress-spinner-dialog></app-progress-spinner-dialog>
 <mat-sidenav-container fxFlexFill class="example-container">
   <mat-sidenav #sidenav fxLayout="column">
     <div fxLayout="column">

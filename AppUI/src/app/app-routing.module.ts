@@ -16,6 +16,7 @@ import { DashboardComponent } from './components/user/dashboard/dashboard.compon
 import { ForgotPasswordComponent } from './components/user/forgot-password/forgot-password.component';
 import { ProfileComponent } from './components/user/profile/profile.component';
 import { RegistrationComponent } from './components/user/registration/registration.component';
+import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -29,8 +30,20 @@ const routes: Routes = [
   { path: 'home-loan', component: HomeLoanComponent },
   { path: 'debit-cards', component: DebitCardsComponent },
   { path: 'credit-cards', component: CreditCardsComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  /*
+  { path: 'dashboard', component: DashboardComponent,
+  canActivate: [AuthGuard],
+  data: {
+    role: 'Admin'
+  } },
+  { path: 'profile', component: ProfileComponent,
+  canActivate: [AuthGuard],
+  data: {
+    role: 'User'
+  } },
+  */
   { path: 'registration', component: RegistrationComponent },
   { path: 'faq-page', component: FAQPageComponent },
 

@@ -9,7 +9,7 @@
       <div fxLayout.lt-sm="column" fxLayoutAlign="center center">
         <span>Total Balance:</span>&nbsp;
         <span style="font-size: 16px">&#8377;12323.00</span>
-        <a mat-button href="#">Log Out</a>
+        <a mat-button href="#" (click)="logout()">Log Out</a>
       </div>
     </div>
     <mat-tab-group>
@@ -17,8 +17,8 @@
         <app-profile></app-profile>
       </mat-tab>
       <mat-tab label="Second"> Content 2 </mat-tab>
-      <mat-tab label="Third"> Content 3 </mat-tab>
-      <mat-tab label="Four"> Content 4 </mat-tab>
+      <mat-tab *ngIf="isUserAdminType" label="Third"> Content 3 </mat-tab>
+      <mat-tab *ngIf="isUserAdminType" label="Four"> Content 4 </mat-tab>
     </mat-tab-group>
   </div>
   <div fxFlex="10" fxHide.lt-sm> </div>
