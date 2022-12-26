@@ -1,3 +1,7 @@
 .date-field{
     width: 85% !important;
   }
+
+.gender{
+  display: flex;
+}

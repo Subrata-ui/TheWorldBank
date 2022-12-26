@@ -1,6 +1,6 @@
 <div flex fxLayout="row" fxLayoutAlign="center center">
     <mat-card>
-        <form [formGroup]="ownerForm" autocomplete="off" novalidate (ngSubmit)="createOwner(ownerForm.value)">
+        <form [formGroup]="userForm" autocomplete="off" novalidate (ngSubmit)="createUser(userForm.value)">
             <mat-card-content>
                 <div fxLayoutAlign="center center" fxLayout.lt-sm="column">
                     <h3>New User Registration</h3>
@@ -8,45 +8,108 @@
                 <div fxLayout.lt-sm="column">
                     <div fxFlexOffset="2">
                         <mat-form-field>
-                            <input matInput type="text" placeholder="Owner's name" formControlName="name" id="name">
-                            <mat-error *ngIf="hasError('name', 'required')">Name is required</mat-error>
-                            <mat-error *ngIf="hasError('name', 'maxlength')">You have more than 10 characters
-                            </mat-error>
+                            <mat-label>Account Number</mat-label>
+                            <input matInput type="text" formControlName="acNumber" />
+                            <mat-error *ngIf="hasError('acNumber', 'required')">Please Enter Account Number</mat-error>
                         </mat-form-field>
                     </div>
                     <div fxFlexOffset="2">
-                        <mat-form-field class="date-field">
-                            <input matInput [matDatepicker]="picker" placeholder="Choose a date of birth"
-                                formControlName="dateOfBirth" id="dateOfBirth" readonly (click)="picker.open()">
-                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                            <mat-datepicker #picker></mat-datepicker>
+                        <mat-form-field>
+                            <mat-label>CIF Number</mat-label>
+                            <input matInput type="text" formControlName="cifNumber" />
+                            <mat-error *ngIf="hasError('cifNumber', 'required')">Please Enter CIF Mumber</mat-error>
                         </mat-form-field>
                     </div>
                 </div>
                 <div fxLayout.lt-sm="column">
                     <div fxFlexOffset="2">
                         <mat-form-field>
-                            <input matInput type="text" placeholder="Owner's address" formControlName="address">
-                            <mat-error *ngIf="hasError('address', 'required')">Address is required</mat-error>
-                            <mat-error *ngIf="hasError('address', 'maxlength')">You have more than 100 characters
-                            </mat-error>
+                            <mat-label>Frist Name</mat-label>
+                            <input matInput type="text" formControlName="firstName" />
+                            <mat-error *ngIf="hasError('firstName', 'required')">Please Enter First Name</mat-error>
                         </mat-form-field>
                     </div>
                     <div fxFlexOffset="2">
                         <mat-form-field>
-                            <mat-label>Password</mat-label>
-                            <input matInput placeholder="Password" type="password">
-                            <mat-error>
-                                Please enter a valid Password
-                            </mat-error>
+                            <mat-label>Last Name</mat-label>
+                            <input matInput type="text" formControlName="lastName" />
+                            <mat-error *ngIf="hasError('lastName', 'required')">Please Enter Last Name</mat-error>
                         </mat-form-field>
                     </div>
                 </div>
+                <div fxLayout.lt-sm="column">
+                    <div fxFlexOffset="2">
+                        <mat-form-field>
+                            <mat-label>Email</mat-label>
+                            <input matInput type="email" formControlName="email" />
+                            <mat-error *ngIf="hasError('email', 'required')">Please Enter Your Email</mat-error>
+                            <mat-error *ngIf="hasError('email', 'email')">Please Enter a Valid Email</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlexOffset="2">
+                        <mat-form-field appearance="fill" class="date-field">
+                            <mat-label>DOB</mat-label>
+                            <input matInput [matDatepicker]="picker" formControlName="dateOfBirth">
+                            <mat-error *ngIf="hasError('dateOfBirth', 'required')">Please Enter DOB
+                                (MM/DD/YYYY)</mat-error>
+                            <mat-hint>MM/DD/YYYY</mat-hint>
+                            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+
+                </div>
+                <div fxLayout.lt-sm="column">
+                    <div fxFlexOffset="2">
+                        <mat-form-field>
+                            <mat-label>Mobile Number</mat-label>
+                            <input matInput type="tel" maxlength="10" formControlName="mobile" />
+                            <!-- <mat-hint>Register Mobile Number</mat-hint> -->
+                            <mat-error *ngIf="hasError('mobile', 'required')">Mobile Number is required</mat-error>
+
+                            <mat-error *ngIf="hasError('mobile', 'minlength')">Please enter 10 digits
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlexOffset="2">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Account Type</mat-label>
+                            <mat-select matNativeControl required>
+                                <mat-option value="current">Current Account</mat-option>
+                                <mat-option value="savings">savings Account</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div fxLayout.lt-sm="column">
+                    <div fxFlexOffset="2">
+                        <mat-form-field>
+                            <mat-label>Password</mat-label>
+                            <input matInput type="password" formControlName="password" />
+                            <mat-error *ngIf="hasError('password', 'required')">Password is required</mat-error>
+
+                        </mat-form-field>
+                    </div>
+                    <div fxFlexOffset="2">
+                        <mat-form-field>
+                            <mat-label>Confirm Password</mat-label>
+                            <input matInput type="password" formControlName="confirmPassword" />
+                            <mat-error *ngIf="userForm.errors?.mismatchedPasswords">Confirm Password is
+                                not matched.</mat-error>
+
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div>
+                    <mat-checkbox formControlName="terms">Acecpt Terms & Conditions.</mat-checkbox>
+                    <mat-error *ngIf="hasError('terms', 'required')">Please Check me.</mat-error>
+                </div>
             </mat-card-content>
+
             <div fxLayoutAlign="center center" fxLayout.lt-sm="column">
                 <div fxFlexOffset="2">
                     <mat-card-actions>
-                        <button mat-raised-button color="primary" [disabled]="!ownerForm.valid">Create</button>
+                        <button mat-raised-button color="primary" [disabled]="!userForm.valid">Create</button>
                         &nbsp; &nbsp;<button type="button" mat-raised-button color="warn"
                             (click)="onCancel()">Cancel</button>
                     </mat-card-actions>

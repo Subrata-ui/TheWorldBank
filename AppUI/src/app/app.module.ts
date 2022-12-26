@@ -28,6 +28,8 @@ import { RegistrationComponent } from './components/user/registration/registrati
 import { ForgotPasswordComponent } from './components/user/forgot-password/forgot-password.component';
 import { FAQPageComponent } from './components/faq-page/faq-page.component';
 import { ProgressSpinnerDialogComponent } from './components/progress-spinner-dialog/progress-spinner-dialog.component';
+import { SavingsAccountComponent } from './components/products/savings-account/savings-account.component';
+import { OpenAccountComponent } from './components/products/open-account/open-account.component';
 
 @NgModule({
   declarations: [    
@@ -51,7 +53,9 @@ import { ProgressSpinnerDialogComponent } from './components/progress-spinner-di
     RegistrationComponent,
     ForgotPasswordComponent,
     FAQPageComponent,
-    ProgressSpinnerDialogComponent
+    ProgressSpinnerDialogComponent,
+    SavingsAccountComponent,
+    OpenAccountComponent,
   ],
   imports: [
     BrowserModule,

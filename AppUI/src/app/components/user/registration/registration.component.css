@@ -1,12 +1,3 @@
-.example-card {
-    display: flex;
-    justify-content: center;
-    /* align horizontal */
-    align-items: center;
-    /* align vertical */
-    width: 25%;
-    margin-top: 10px;
-}
  .invalid-login{
     display: inline-flex; color:red;
   }

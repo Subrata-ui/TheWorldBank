@@ -1,7 +1,13 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
-import { OwnerForCreation } from '../user/registration/registration.component';
+
+
+export interface OwnerForCreation {
+  name: string;
+  dateOfBirth: Date;
+  address:string;
+}
 
 @Component({
   selector: 'app-contact-us',

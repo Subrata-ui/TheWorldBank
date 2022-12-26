@@ -11,6 +11,7 @@ import { CreditCardsComponent } from './components/products/credit-cards/credit-
 import { CurrentAccountComponent } from './components/products/current-account/current-account.component';
 import { DebitCardsComponent } from './components/products/debit-cards/debit-cards.component';
 import { HomeLoanComponent } from './components/products/home-loan/home-loan.component';
+import { OpenAccountComponent } from './components/products/open-account/open-account.component';
 import { PersonalLoanComponent } from './components/products/personal-loan/personal-loan.component';
 import { DashboardComponent } from './components/user/dashboard/dashboard.component';
 import { ForgotPasswordComponent } from './components/user/forgot-password/forgot-password.component';
@@ -24,6 +25,8 @@ const routes: Routes = [
   { path: 'contact-us', component: ContactUsComponent },
   { path: 'career', component: CareerComponent },
   { path: 'current-account', component: CurrentAccountComponent },
+  { path: 'open-account', component: OpenAccountComponent },
+  { path: 'open-account/:id', component: OpenAccountComponent },
   { path: 'car-loan', component: CarLoanComponent },
   { path: 'busigness-loan', component: BusinessLoanComponent },
   { path: 'personal-loan', component: PersonalLoanComponent },
