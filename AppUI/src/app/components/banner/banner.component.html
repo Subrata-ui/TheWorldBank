@@ -7,7 +7,7 @@
       </div>
       <div class="mall-carousel-ind">
           <ul>
-              <li *ngFor="let item of Imagedata; let i = index;" [class.mall-this]="startIndex - 1 === i"></li>
+              <li *ngFor="let item of Imagedata; let i = index;" [class.mall-this]="startIndex - 1 === i" (mouseover)="Stop()" (mouseout)="Start()"></li>
           </ul>
       </div>
   </div>

@@ -9,31 +9,42 @@
     </button>
     <mat-menu #products="matMenu">
       <button mat-menu-item [matMenuTriggerFor]="accounts">Accounts</button>
-      <button mat-menu-item [matMenuTriggerFor]="loans">Loans</button>
+      <button mat-menu-item [matMenuTriggerFor]="loans" routerLink="personal-loan">Loans</button>
       <button mat-menu-item [matMenuTriggerFor]="cards">Cards</button>
     </mat-menu>
     <mat-menu #accounts="matMenu">
-      <button mat-menu-item>Saving Account</button>
-      <button mat-menu-item>Current Account</button>
+      <button mat-menu-item routerLink="savings-account">Saving Account</button>
+      <button mat-menu-item routerLink="current-account">Current Account</button>
     </mat-menu>
     <mat-menu #loans="matMenu">
-      <button mat-menu-item>Personal Loan</button>
-      <button mat-menu-item>Home Loan</button>
-      <button mat-menu-item>Car Loan</button>
-      <button mat-menu-item>Business Loans</button>
+      <button mat-menu-item routerLink="personal-loan">Personal Loan</button>
+      <button mat-menu-item routerLink="personal-loan">Home Loan</button>
+      <button mat-menu-item routerLink="personal-loan">Car Loan</button>
+      <button mat-menu-item routerLink="personal-loan">Business Loans</button>
     </mat-menu>
     <mat-menu #cards="matMenu">
       <button mat-menu-item>Debit Cards</button>
       <button mat-menu-item>Credit Cards</button>
     </mat-menu>
+    <a routerLink="aboutUs" mat-button>About Us</a>
     <a routerLink="career" mat-button>Career</a>
   </div>
   <span class="example-spacer"></span>
   <div fxShow="true" fxHide.lt-md="true">
     <!-- The following menu items will be hidden on both SM and XS screen sizes -->
     <a mat-button routerLink="contact-us">Contact Us<mat-icon>contact_support</mat-icon></a>
-    <a *ngIf="!isUserLoggedIn;else other_content" (click)="openDialog()" mat-button>Login<mat-icon>account_circle</mat-icon></a>
-    <ng-template #other_content>Hi, {{loggedInUserName}}</ng-template>
+    <a *ngIf="!isUserLoggedIn;else other_content" (click)="openDialog()"
+      mat-button>Login<mat-icon>account_circle</mat-icon></a>
+    <!-- <ng-template #other_content>Hi, {{loggedInUserName}}</ng-template> -->
+    <ng-template #other_content>
+      <button mat-button [matMenuTriggerFor]="profile" style="color: white;">Hi,
+        {{loggedInUserName}}<mat-icon>arrow_drop_down</mat-icon>
+      </button>
+      <mat-menu #profile="matMenu">
+        <button mat-menu-item routerLink="dashboard">Your Account</button>
+        <button mat-menu-item (click)="logout()">Logout</button>
+      </mat-menu>
+    </ng-template>
   </div>
   <div fxShow="true" fxHide.gt-sm="true">
     <a (click)="sidenav.toggle()">
@@ -45,22 +56,33 @@
 <mat-sidenav-container fxFlexFill class="example-container">
   <mat-sidenav #sidenav fxLayout="column">
     <div fxLayout="column">
-      <a (click)="sidenav.toggle()" href="#" mat-button>Close</a>
+      <a (click)="sidenav.toggle()" mat-button>Close</a>
       <a routerLink="home" mat-button>Home</a>
       <button mat-button [matMenuTriggerFor]="products">Products<mat-icon>arrow_drop_down</mat-icon></button>
       <a routerLink="career" mat-button>Career</a>
       <a mat-button routerLink="contact-us">Contact Us</a>
-      <a (click)="openDialog()" mat-button>Login</a>
+      <button *ngIf="!isUserLoggedIn;else other_content1" (click)="openDialog()"
+        mat-button>Login<mat-icon>account_circle</mat-icon></button>
+      <ng-template #other_content1>
+        <button mat-button [matMenuTriggerFor]="profile1">Hi, {{loggedInUserName}}<mat-icon>arrow_drop_down</mat-icon>
+        </button>
+        <mat-menu #profile1="matMenu">
+          <button mat-menu-item routerLink="dashboard">Your Account</button>
+          <button mat-menu-item (click)="logout()">Logout</button>
+        </mat-menu>
+      </ng-template>
     </div>
   </mat-sidenav>
   <mat-sidenav-content fxFlexFill>
+
     <router-outlet></router-outlet>
+
   </mat-sidenav-content>
 </mat-sidenav-container>
-<div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="20px" class="footer">
+<div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" class="footer">
   <div>
     <ul class="pink">
-      <h3>About Us</h3>
+      <div class="footer-title">About Us</div>
       <li>Overview</li>
       <li>Investor Relations</li>
       <li>RBI Awarness Program</li>
@@ -68,11 +90,10 @@
       <li>TWB Answers</li>
       <li>Corporate Governance</li>
     </ul>
-
   </div>
   <div>
     <ul class="pink">
-      <h3>Explore Products</h3>
+      <div class="footer-title">Explore Products</div>
       <li>Current Account</li>
       <li>Personal Loan</li>
       <li>Home Loan</li>
@@ -80,11 +101,10 @@
       <li>Internet Banking</li>
       <li>Mobile banking</li>
     </ul>
-
   </div>
   <div>
     <ul class="pink">
-      <h3>Calculator</h3>
+      <div class="footer-title">Calculator</div>
       <li>FD Calculator</li>
       <li>Recurring Diposite Calculator</li>
       <li>Loan Calculator</li>
@@ -92,11 +112,10 @@
       <li>SIP Calculator</li>
       <li>PPF Calculator</li>
     </ul>
-
   </div>
   <div>
     <ul class="pink">
-      <h3>Customar Services</h3>
+      <div class="footer-title">Customar Services</div>
       <li>Customar Care</li>
       <li>Notice Board</li>
       <li>Online Assist</li>
@@ -104,6 +123,5 @@
       <li>FAQs</li>
       <li routerLink="contact-us">Contact-Us</li>
     </ul>
-
   </div>
 </div>

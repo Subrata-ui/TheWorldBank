@@ -11,13 +11,15 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatTableModule} from '@angular/material/table';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatPaginatorModule} from '@angular/material/paginator';
 @NgModule({
   imports: [
     MatButtonModule,
@@ -38,7 +40,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatRadioModule,
     MatTableModule,
     MatSelectModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatGridListModule,
+    MatPaginatorModule
   ],
   exports: [
     MatButtonModule,
@@ -59,7 +63,12 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatRadioModule,
     MatTableModule,
     MatSelectModule,
-    MatCheckboxModule
-  ]
+    MatCheckboxModule,
+    MatGridListModule,
+    MatPaginatorModule
+  ],
+  providers:[
+    //{provide: MAT_DATE_LOCALE, useValue: 'en-GB'}
+  ],
 })
 export class MaterialModule { }

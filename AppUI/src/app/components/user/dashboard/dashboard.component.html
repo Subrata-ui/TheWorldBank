@@ -4,57 +4,87 @@
     <div fxLayoutAlign="space-between center" class="profile">
       <div fxLayout.lt-sm="column" fxLayoutAlign="center center">
         <img src="/assets/images/profile.jpg" width="40px" height="auto" class="profile-image">
-        <span>Welcome back, Ram!</span>
+        <span>Welcome back, {{customerName}}!</span>
       </div>
       <div fxLayout.lt-sm="column" fxLayoutAlign="center center">
         <span>Total Balance:</span>&nbsp;
-        <span style="font-size: 16px">&#8377;12323.00</span>
-        <a mat-button href="#" (click)="logout()">Log Out</a>
+        <span style="font-size: 16px">{{availableBalance | currency: 'INR'}}</span>
+        <!-- <a mat-button (click)="logout()">Log Out</a> -->
       </div>
     </div>
     <mat-tab-group>
-      <mat-tab label="Profile">
+      <mat-tab label="Your Profile">
         <app-profile></app-profile>
       </mat-tab>
-      <mat-tab label="Second"> Content 2 </mat-tab>
-      <mat-tab *ngIf="isUserAdminType" label="Third">
+      <!-- 2nd Tab, Your recent Transaction starts -->
+      <mat-tab label="Your Recent Transactions">
+        <app-transactions></app-transactions>
+      </mat-tab>
+      <!-- Application for New Accounts Starts -->
+      <mat-tab *ngIf="isUserAdminType" label="Applications for New Account">
+        <mat-form-field>
+          <mat-label>Filter</mat-label>
+          <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
+        </mat-form-field>
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-        <!--- Note that these columns can be defined in any order.
-              The actual rendered columns are set as a property on the row definition" -->
-      
-        <!-- Position Column -->
-        <ng-container matColumnDef="id">
-          <th mat-header-cell *matHeaderCellDef> No. </th>
-          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-        </ng-container>
-      
-        <!-- Name Column -->
-        <ng-container matColumnDef="fullName">
-          <th mat-header-cell *matHeaderCellDef> FullName </th>
-          <td mat-cell *matCellDef="let element"> {{element.firstName}} {{element.lastName}}</td>
-        </ng-container>
-      
-        <!-- Weight Column -->
-        <ng-container matColumnDef="dateOfBirth">
-          <th mat-header-cell *matHeaderCellDef> DOB </th>
-          <td mat-cell *matCellDef="let element"> {{element.dateOfBirth}} </td>
-        </ng-container>
-      <!-- Weight Column -->
-      <ng-container matColumnDef="action">
-        <th mat-header-cell *matHeaderCellDef> Action </th>
-          <td mat-cell *matCellDef="let element">
-            <button mat-raised-button color="primary" routerLink="/open-account/{{element.id}}">Edit</button> &nbsp;
-            <button mat-raised-button color="primary" >Delete</button>
-          </td>
-      </ng-container>
-      
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
-      
+          <!-- I'd Column -->
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td mat-cell *matCellDef="let element; let i = index;"> {{i+1}} </td>
+          </ng-container>
+          <!-- Name Column -->
+          <ng-container matColumnDef="fullName">
+            <th mat-header-cell *matHeaderCellDef> FullName </th>
+            <td mat-cell *matCellDef="let element"> {{element.firstName | nameTitle:element.gender}}
+              {{element.lastName}}</td>
+          </ng-container>
+          <!--Gender Column -->
+          <ng-container matColumnDef="gender">
+            <th mat-header-cell *matHeaderCellDef> Gender </th>
+            <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+          </ng-container>
+          <!--Date Of Birth Column -->
+          <ng-container matColumnDef="dateOfBirth">
+            <th mat-header-cell *matHeaderCellDef> DOB </th>
+            <td mat-cell *matCellDef="let element"> {{element.dateOfBirth | date:' d MMM, y'}} </td>
+          </ng-container>
+          <!--Mobile Number Column -->
+          <ng-container matColumnDef="mobNum">
+            <th mat-header-cell *matHeaderCellDef> Mobile Number </th>
+            <td mat-cell *matCellDef="let element"> {{element.mobNum}} </td>
+          </ng-container>
+          <!-- Email id Colum -->
+          <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> Email </th>
+            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+          </ng-container>
+          <!-- Full Address Column -->
+          <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef> Full Address </th>
+            <td mat-cell *matCellDef="let element"> {{element.address}}, {{element.city}}, {{element.state}},
+              {{element.country}}, {{element.pinNumber}}</td>
+          </ng-container>
+          <!-- Action Column -->
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef> Action </th>
+            <td mat-cell *matCellDef="let element" width="20%">
+              <button mat-raised-button color="primary" routerLink="/open-account/{{element.id}}">Edit</button>&nbsp;
+              <button mat-raised-button color="warn" (click)="removeCart(element.id)">Delete</button>
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">Not a valid entry "{{input.value}}". </td>
+          </tr>
+        </table>
+        <mat-paginator #paginatorPageSize [pageSizeOptions]="pageSizes" showFirstLastButtons></mat-paginator>
       </mat-tab>
-      <mat-tab *ngIf="isUserAdminType" label="Four"> Content 4 </mat-tab>
+      <!-- Application for Loan Start -->
+      <mat-tab *ngIf="isUserAdminType" label="Applications for Loans">
+        <app-loan-applications></app-loan-applications>
+      </mat-tab>
     </mat-tab-group>
   </div>
   <div fxFlex="10" fxHide.lt-sm> </div>

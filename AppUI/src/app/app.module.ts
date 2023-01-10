@@ -30,6 +30,10 @@ import { FAQPageComponent } from './components/faq-page/faq-page.component';
 import { ProgressSpinnerDialogComponent } from './components/progress-spinner-dialog/progress-spinner-dialog.component';
 import { SavingsAccountComponent } from './components/products/savings-account/savings-account.component';
 import { OpenAccountComponent } from './components/products/open-account/open-account.component';
+import { NameTitlePipe } from './services/name-title.pipe';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { TransactionsComponent } from './components/user/transactions/transactions.component';
+import { LoanApplicationsComponent } from './components/user/loan-applications/loan-applications.component';
 
 @NgModule({
   declarations: [    
@@ -56,6 +60,10 @@ import { OpenAccountComponent } from './components/products/open-account/open-ac
     ProgressSpinnerDialogComponent,
     SavingsAccountComponent,
     OpenAccountComponent,
+    NameTitlePipe,
+    AboutUsComponent,
+    TransactionsComponent,
+    LoanApplicationsComponent,
   ],
   imports: [
     BrowserModule,

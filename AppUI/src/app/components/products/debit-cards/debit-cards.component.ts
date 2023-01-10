@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./debit-cards.component.css']
 })
 export class DebitCardsComponent {
-
+  
 }

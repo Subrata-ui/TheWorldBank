@@ -49,7 +49,8 @@ export class LoginComponent {
       this.authService.login(this.f.userName.value, this.f.password.value);
       if (localStorage.getItem("CurrentUser") !== null) {
         this.router.navigate(['dashboard']);
-        this.commonService.LoginClickedEvent(this.f.userName.value);
+        var item = JSON.parse(localStorage.getItem("CurrentUser") || '{}');
+        this.commonService.LoginClickedEvent(item[0].firstName);
         this.dialogRef.close();
       }
       else

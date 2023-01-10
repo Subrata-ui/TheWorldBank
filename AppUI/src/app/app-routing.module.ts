@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 import { CareerComponent } from './components/career/career.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { FAQPageComponent } from './components/faq-page/faq-page.component';
@@ -13,6 +14,7 @@ import { DebitCardsComponent } from './components/products/debit-cards/debit-car
 import { HomeLoanComponent } from './components/products/home-loan/home-loan.component';
 import { OpenAccountComponent } from './components/products/open-account/open-account.component';
 import { PersonalLoanComponent } from './components/products/personal-loan/personal-loan.component';
+import { SavingsAccountComponent } from './components/products/savings-account/savings-account.component';
 import { DashboardComponent } from './components/user/dashboard/dashboard.component';
 import { ForgotPasswordComponent } from './components/user/forgot-password/forgot-password.component';
 import { ProfileComponent } from './components/user/profile/profile.component';
@@ -25,6 +27,7 @@ const routes: Routes = [
   { path: 'contact-us', component: ContactUsComponent },
   { path: 'career', component: CareerComponent },
   { path: 'current-account', component: CurrentAccountComponent },
+  { path:'savings-account', component:SavingsAccountComponent},
   { path: 'open-account', component: OpenAccountComponent },
   { path: 'open-account/:id', component: OpenAccountComponent },
   { path: 'car-loan', component: CarLoanComponent },
@@ -47,7 +50,9 @@ const routes: Routes = [
     role: 'User'
   } },
   */
-  { path: 'registration', component: RegistrationComponent },
+ { path: 'registration', component: RegistrationComponent },
+ { path: 'forgot-password', component: ForgotPasswordComponent },
+ { path: 'aboutUs', component:AboutUsComponent},
   { path: 'faq-page', component: FAQPageComponent },
 
   { path: '**', component: PageNotFoundComponent }

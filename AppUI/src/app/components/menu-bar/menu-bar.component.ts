@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { CommonService } from 'src/app/services/common.service';
 import { LoginComponent } from '../user/login/login.component';
 
@@ -13,7 +15,11 @@ export class MenuBarComponent {
   loggedInUserName: string;
   isUserLoggedIn = false;
   ecomServices: any;
-  constructor(public dialog: MatDialog, private commonService: CommonService) { }
+  constructor(public dialog: MatDialog,
+    private commonService: CommonService,
+    private authService: AuthService,
+    private router: Router,
+  ) { }
 
   ngOnInit() {
     this.commonService.opLoginClickedEvent
@@ -22,11 +28,11 @@ export class MenuBarComponent {
         this.isUserLoggedIn = true;
       });
 
-      if (localStorage.getItem("CurrentUser") !== null) {
-        this.ecomServices = JSON.parse(localStorage.getItem('CurrentUser') || '{}');
-        this.isUserLoggedIn = true;
-        this.loggedInUserName = this.ecomServices[0].username;
-      }
+    if (localStorage.getItem("CurrentUser") !== null) {
+      this.ecomServices = JSON.parse(localStorage.getItem('CurrentUser') || '{}');
+      this.isUserLoggedIn = true;
+      this.loggedInUserName = this.ecomServices[0].firstName;
+    }
   }
 
   openDialog(): void {
@@ -39,5 +45,10 @@ export class MenuBarComponent {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed', result);
     });
+  }
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['home']);
+    this.isUserLoggedIn = false;
   }
 }

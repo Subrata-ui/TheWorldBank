@@ -1,0 +1,21 @@
+#heading{
+    color: blue;
+    font-family: Georgia, Times, serif;
+    font-style: italic;
+}
+.example-card {
+    max-width: 45%;
+    height: 210px;
+}
+#body {
+    background-color: rgb(247, 238, 227) !important;
+}
+/* mouse over link */
+a:hover {
+    color: blue;
+    display: inline-block;
+}
+#login_link {
+    cursor: default;
+    pointer-events: auto;
+}

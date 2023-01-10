@@ -1,6 +1,6 @@
 <div flex fxLayout="row" fxLayoutAlign="center center">
     <mat-card>
-        <form [formGroup]="ownerForm" autocomplete="off" novalidate (ngSubmit)="OpeningNewAccount(ownerForm.value)">
+        <form [formGroup]="openAccountForm" autocomplete="off" novalidate (ngSubmit)="OpeningNewAccount(openAccountForm.value)">
             <mat-card-content>
                 <div fxLayoutAlign="center center" fxLayout.lt-sm="column">
                     <h3>Account Opening Form</h3>
@@ -98,7 +98,7 @@
                     </div>
                     <div fxFlexOffset="2">
                         <mat-form-field>
-                            <input matInput type="text" placeholder="Pin Code" formControlName="pinNumber" id="mobNum">
+                            <input matInput type="text" placeholder="Pin Code" formControlName="pinNumber">
                             <mat-error *ngIf="hasError('pinNumber', 'required')">Pin Code is required</mat-error>
                             <mat-error *ngIf="hasError('pinNumber', 'maxlength')">You have more than 6 Digit</mat-error>
                             <mat-error *ngIf="hasError('pinNumber', 'minlength')">Enter 6 Digit Pin Code</mat-error>
@@ -119,7 +119,7 @@
                         <input (change)="onImageChangeFromFile($event)" type="file" formControlName="imageInput"
                             class="form-control"
                             id="inputEmail4">
-                        <mat-error *ngIf="ownerForm.controls.imageInput.errors?.incorrectFile">Invalid File.
+                        <mat-error *ngIf="openAccountForm.controls.imageInput.errors?.incorrectFile">Invalid File.
                         </mat-error>
                     </div>
                 </div>
@@ -127,7 +127,7 @@
             <div fxLayoutAlign="center center" fxLayout.lt-sm="column">
                 <div fxFlexOffset="2">
                     <mat-card-actions>
-                        <button mat-raised-button color="primary" [disabled]="!ownerForm.valid">Create</button>
+                        <button mat-raised-button color="primary" [disabled]="!openAccountForm.valid">{{btnCreateOrUpdate}}</button>
                         &nbsp; &nbsp;
                         <button type="button" mat-raised-button color="warn" routerLink="/home">Cancel</button>
                     </mat-card-actions>

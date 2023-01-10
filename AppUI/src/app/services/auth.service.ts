@@ -14,6 +14,12 @@ export class AuthService {
     }
   }
 
+  resetPassword(_email: string, _contact: string) {
+    if (this.userService.getAllUser().find(i => i.email == _email && i.contact == _contact)) {
+      localStorage.setItem('ResetPassword', JSON.stringify(this.userService.getAllUser().filter(i => i.email == _email)));
+    }
+  }
+
   logout() {
     localStorage.removeItem('CurrentUser');
     //localStorage.clear();

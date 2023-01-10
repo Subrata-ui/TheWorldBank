@@ -4,22 +4,26 @@ export class UserLoginDetails {
     password: string;
     firstName: string;
     lastName: string;
-    role: Role
+    email: string;
+    contact: string;
+    role: Role;
+    balance: number;
 }
 
 export class OpenNewAccount {
     id: number;
     firstName: string;
     lastName: string;
+    gender: string;
     dateOfBirth: Date;
-    // gender: string;
-    // address: string;
-    // country: string;
-    // state: string;
-    // city: string;
-    // mobile: number;
-    // email: string;
-    // uploadPan: File;
+    mobNum: number;
+    email: string;
+    address: string;
+    country: string;
+    state: string;
+    city: string;
+    pinNumber: number;
+    imageInput: File;
 }
 
 
